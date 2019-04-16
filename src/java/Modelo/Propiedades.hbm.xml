@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-04-2019 20:19:44 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Propiedades" table="PROPIEDADES" schema="ANOTHERTEST" optimistic-lock="version">
+        <id name="idpropiedad" type="integer">
+            <column name="IDPROPIEDAD" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="comuna" class="Modelo.Comuna" fetch="select">
+            <column name="COMUNA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipopropiedad" class="Modelo.Tipopropiedad" fetch="select">
+            <column name="TIPO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estadopropiedad" class="Modelo.Estadopropiedad" fetch="select">
+            <column name="ESTADO" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="negocio" class="Modelo.Negocio" fetch="select">
+            <column name="NEGOCIO" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="clientes" class="Modelo.Clientes" fetch="select">
+            <column name="PROPIETARIO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="direccion" type="string">
+            <column name="DIRECCION" length="100" not-null="true" />
+        </property>
+        <property name="medidas" type="string">
+            <column name="MEDIDAS" length="100" not-null="true" />
+        </property>
+        <property name="detalle" type="string">
+            <column name="DETALLE" length="20" />
+        </property>
+        <set name="reservases" table="RESERVAS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROPIEDAD" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Reservas" />
+        </set>
+    </class>
+</hibernate-mapping>

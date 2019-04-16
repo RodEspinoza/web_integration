@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-04-2019 20:19:44 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Rolusuario" table="ROLUSUARIO" schema="ANOTHERTEST" optimistic-lock="version">
+        <id name="idrol" type="integer">
+            <column name="IDROL" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="roldesc" type="string">
+            <column name="ROLDESC" length="20" />
+        </property>
+        <one-to-one name="usuarios" class="Modelo.Usuarios"></one-to-one>
+    </class>
+</hibernate-mapping>

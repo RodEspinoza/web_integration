@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-04-2019 20:19:44 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Usuarios" table="USUARIOS" schema="ANOTHERTEST" optimistic-lock="version">
+        <id name="idusuario" type="integer">
+            <column name="IDUSUARIO" precision="22" scale="0" />
+            <generator class="foreign">
+                <param name="property">rolusuario</param>
+            </generator>
+        </id>
+        <one-to-one name="rolusuario" class="Modelo.Rolusuario" constrained="true"></one-to-one>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="20" />
+        </property>
+        <property name="appaterno" type="string">
+            <column name="APPATERNO" length="20" />
+        </property>
+        <property name="apmaterno" type="string">
+            <column name="APMATERNO" length="20" />
+        </property>
+        <property name="rut" type="string">
+            <column name="RUT" length="20" />
+        </property>
+        <property name="passwd" type="string">
+            <column name="PASSWD" length="20" />
+        </property>
+        <property name="rolusuario_1" type="integer">
+            <column name="ROLUSUARIO" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

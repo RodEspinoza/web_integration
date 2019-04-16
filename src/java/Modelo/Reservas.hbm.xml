@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-04-2019 20:19:44 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Reservas" table="RESERVAS" schema="ANOTHERTEST" optimistic-lock="version">
+        <id name="idreserva" type="integer">
+            <column name="IDRESERVA" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="propiedades" class="Modelo.Propiedades" fetch="select">
+            <column name="PROPIEDAD" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="clientesByPropietario" class="Modelo.Clientes" fetch="select">
+            <column name="PROPIETARIO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="clientesByComprador" class="Modelo.Clientes" fetch="select">
+            <column name="COMPRADOR" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="inicioreserva" type="serializable">
+            <column name="INICIORESERVA" not-null="true" />
+        </property>
+        <property name="finreserva" type="serializable">
+            <column name="FINRESERVA" not-null="true" />
+        </property>
+        <property name="montoreservauf" type="integer">
+            <column name="MONTORESERVAUF" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="estadoreserva" type="integer">
+            <column name="ESTADORESERVA" precision="22" scale="0" not-null="true">
+                <comment>1 = ACTIVO; 0 = INACTIVO</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
