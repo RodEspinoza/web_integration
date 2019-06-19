@@ -5,7 +5,7 @@
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Controler.InicioClientes" %>
+<%@page import="DAO.InicioClientes" %>
 <!DOCTYPE html>
 <html>
     <head>

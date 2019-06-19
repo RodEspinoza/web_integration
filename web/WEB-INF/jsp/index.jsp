@@ -1,6 +1,7 @@
 
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="DAO.DaoPersona" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,10 +39,10 @@
             <a class="nav-link" href="contact.html">Contacto</a>
           </li>
         </ul>&nbsp;
-        <form class="form-inline" action="loginclient.htm" method="POST">
+        <form class="form-inline" action="loginPersona.htm" method="POST">
             <div class="form-group col-md-5">
               <div class="form-label-group">
-                  <input type="text" id="inputUser" class="form-control" placeholder="Rut" required="required" autofocus="autofocus" name="cLogin">
+                  <input type="text" id="inputUser" class="form-control" placeholder="User" required="required" autofocus="autofocus" name="cLogin">
               </div>
             </div>
             <div class="form-group col-md-5">
