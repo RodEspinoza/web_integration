@@ -3,24 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package Controller;
 
+import DAO.DaoPropiedad;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
  * @author arturoriquelmepino
  */
+
 @Controller
-@RequestMapping("/ejecutivo.htm")
-public class Ejecutivo {
+@RequestMapping("/listarPropiedad")
+public class ListarPropiedades {
+    String path;
+    
     @RequestMapping(method = RequestMethod.GET)
-public String validarGet()
-{
-       
-         return "loginadmin";
-}
+    public void login(@RequestParam("lUser") String user, @RequestParam("lPass") String pass){
+        DaoPropiedad listaProp = new DaoPropiedad();
+        listaProp.listPropiedad();
+        
+        
+    }
+    
 }

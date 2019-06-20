@@ -1,37 +1,37 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package DAO;
-import Modelo.*;
+
+import Modelo.Comuna;
+import Modelo.Conexion;
+import Modelo.Propiedad;
+import Modelo.Provincia;
+import Modelo.Region;
+import Modelo.TipoPropiedad;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.ui.Model;
 import oracle.jdbc.OracleTypes;
 
 /**
  *
  * @author arturoriquelmepino
  */
-
-@Controller
-@RequestMapping("/inicioclientes.htm")
-public class DaoPropiedadListar {
-    Propiedad propiedad;
+public class DaoPropiedad {
+        Propiedad propiedad;
     TipoPropiedad tipoPropiedad;
     Region region;
     Provincia provincia;
     Comuna comuna;
-    String path;
     
-@RequestMapping(method = RequestMethod.POST)
-public List<Propiedad> listPropiedad()
+    
+    public List<Propiedad> listPropiedad()
 {
 
 
@@ -75,4 +75,5 @@ public List<Propiedad> listPropiedad()
         return propList;
         //return "inicioclientes";
 }
+    
 }

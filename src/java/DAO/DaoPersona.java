@@ -1,25 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package DAO;
-import Modelo.*;
+
+import Modelo.Comuna;
+import Modelo.Conexion;
+import Modelo.EstadoPersona;
+import Modelo.Persona;
+import Modelo.TipoPersona;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.ui.Model;
 import oracle.jdbc.OracleTypes;
 
-
-
-
-@Controller
-@RequestMapping("/loginPersona")
-public class DaoPersonaLogin {
+/**
+ *
+ * @author arturoriquelmepino
+ */
+public class DaoPersona {
     Persona persona;
     Comuna comuna;
     TipoPersona tipoPersona;
@@ -27,17 +28,10 @@ public class DaoPersonaLogin {
     String path;
     
     
-@RequestMapping(method = RequestMethod.GET)
+    public String login(String user, String password){
 
-public String login()
-{
-    return "error";
-}
-@RequestMapping(method = RequestMethod.POST)
-public String login(@RequestParam("cLogin") String cuser, @RequestParam("cPass") String cpass, Model model)
-{
 
-      Persona perLogin = new Persona(cuser, cpass);
+      Persona perLogin = new Persona(user, password);
 
       Conexion conn = new Conexion();
       Connection acceso = conn.getCnn();
@@ -84,4 +78,5 @@ public String login(@RequestParam("cLogin") String cuser, @RequestParam("cPass")
         
         return path;
 }
+    
 }
